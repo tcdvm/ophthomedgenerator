@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- <img src="./assets/logo.png"> -->
+    <OphthoMedGen />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OphthoMedGen from './components/OphthoMedGen.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    OphthoMedGen
   }
 }
 </script>
