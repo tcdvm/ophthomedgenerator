@@ -1,5 +1,5 @@
 <template>
-<div class="columns" id="app">
+<div class="columns" id="app" v-shortkey="['ctrl', 'alt', 'o']" @shortkey.native="keyboardtest()">
   <div class="column is-one-half">
     <section class="section">
       <h1 class="title">Ophtho Meds Generator (OMG)</h1>
@@ -23,61 +23,61 @@
           </p>
           <p class="control">
             <a class="button" @click="selectClass('antiinflammatory')" :class="{'is-success': activeClassBtn == 'antiinflammatory'}">
-      <span class="icon">
-        <i class="fas fa-fire"></i>
-      </span>
-      <span>
-        Anti-Inflammatories
-      </span>
-    </a>
+              <span class="icon">
+                <i class="fas fa-fire"></i>
+              </span>
+              <span>
+                Anti-Inflammatories
+              </span>
+            </a>
           </p>
           <p class="control">
             <a class="button" @click="selectClass('glaucoma')" :class="{'is-success': activeClassBtn == 'glaucoma'}">
-       <span class="icon">
-        <i class="fas fa-arrow-alt-circle-down"></i>
-      </span>
-      <span>
-        Glaucoma Meds
-      </span>
-    </a>
+              <span class="icon">
+                <i class="fas fa-arrow-alt-circle-down"></i>
+              </span>
+              <span>
+                Glaucoma Meds
+              </span>
+            </a>
           </p>
         </div>
         <div class="field is-grouped">
           <p class="control">
             <a class="button" @click="selectClass('kcs')" :class="{'is-success': activeClassBtn == 'kcs'}">
-      <span class="icon">
-        <i class="fas fa-tint"></i>
-      </span>
-      <span>
-        KCS Meds/Lubricants
-      </span>
-    </a>
+              <span class="icon">
+                <i class="fas fa-tint"></i>
+              </span>
+              <span>
+                KCS Meds/Lubricants
+              </span>
+            </a>
           </p>
           <p class="control">
             <a class="button" @click="selectClass('oral')" :class="{'is-success': activeClassBtn == 'oral'}">
-      <span class="icon">
-        <i class="fas fa-tablets"></i>
-      </span>
-      <span>
-        Oral Meds
-      </span>
-    </a>
+              <span class="icon">
+                <i class="fas fa-tablets"></i>
+              </span>
+              <span>
+                Oral Meds
+              </span>
+            </a>
           </p>
           <p class="control">
             <a class="button" @click="selectClass('misc')" :class="{'is-success': activeClassBtn == 'misc'}">
-      <span class="icon">
-        <i class="fas fa-band-aid"></i>
-      </span>
-      <span>
-        Misc stuff (serum, dilators, miotics)
-      </span>
-    </a>
+              <span class="icon">
+                <i class="fas fa-band-aid"></i>
+              </span>
+              <span>
+                Misc stuff (serum, dilators, miotics)
+              </span>
+            </a>
           </p>
         </div>
-
       </section>
 
       <!-- Medication Selector -->
+      <transition name="fade">
       <section v-show="state == 'chooseDrug' || state == 'chooseEye' || state =='chooseFreq' || state == 'ready'">
         <hr>
         <div v-show="drugClass == 'antibiotic'">
@@ -95,8 +95,10 @@
           </div>
         </div>
       </section>
+      </transition>
 
       <!-- Treated Eye Selector -->
+      <transition name="fade">
       <section v-show="state == 'chooseEye' || state =='chooseFreq' || state == 'ready'">
         <hr>
         <div v-show="drugClass == 'antibiotic'">
@@ -116,8 +118,10 @@
           </b-field>
         </div>
       </section>
+      </transition>
 
       <!-- Frequency Selector -->
+      <transition name="fade">
       <section v-show="sigEye">
         <hr>
         <label class="label">Select the desired frequency</label>
@@ -152,10 +156,12 @@
         </div>
 
       </section>
+      </transition>
 
       <hr>
-
+      <transition>
       <a v-show="sigFrequency" class="button is-success" @click="addDrug()">Add {{this.drug.drugName}} {{this.sigEye}} {{this.sigFrequency}}</a>
+      </transition>
 
     </section>
   </div>
@@ -176,7 +182,12 @@
       </div>
       <nav class="level">
         <div class="level-right">
-    <p class="level-item"><a class="button" @click="copyToClipboard">Copy to Clipboard (Ctrl-C)</a></p>
+          <p class="level-item">
+            <a class="button" 
+              v-shortkey="['ctrl', 'c']" 
+              @shortkey="doCopy()" 
+            > Copy to Clipboard (Ctrl-C)</a>
+          </p>
         </div>
       </nav>
       <textarea class="textarea" v-model="instructions" placeholder="Medication instructions here." rows="15" readonly></textarea>
@@ -312,8 +323,12 @@ export default {
       this.activeDrugBtn = null;
       this.state = "chooseClass";
     },
-    copyToClipboard: function () {
-      this.$toast.open('Copied Medication Instructions to Clipboard!')
+    keyboardtest: function () {
+      this.$toast.open('KB Test!')
+    },
+    doCopy: function () {
+      this.$copyText(this.instructions).then( //function () {
+        this.$toast.open('Copied Instructions to Clipboard!'));
     }
   },
   computed: {
@@ -403,6 +418,17 @@ function toEnglish(term) {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+* {
+  text-align: left;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
 /* h3 {
   margin: 40px 0 0;
 }
