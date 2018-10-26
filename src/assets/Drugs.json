@@ -1,0 +1,97 @@
+{
+  "Antibiotics": [
+    {
+      "drugName": "NeoPolyBac",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "a small amount (1/4\" strip)"
+    },
+    {
+      "drugName": "NeoPolyGram",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "NeoPolyDex drops",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic and steroid combination.",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "NeoPolyDex ointment",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medication is an antibiotic and steroid combination.",
+      "dose": "a small amount (1/4\" strip)"
+    },
+    {
+      "drugName": "Terramycin",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "a small amount (1/4\" strip)"
+    },
+    {
+      "drugName": "Tobramycin",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "Erythromicin",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "a small amount (1/4\" strip)"
+    },
+    {
+      "drugName": "Chloramphenicol",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic. Wear gloves when handling.",
+      "dose": "a small amount (1/4\" strip)"
+    },
+    {
+      "drugName": "Ciprofloxacin",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical antibiotic.",
+      "dose": "1 drop"
+    }
+  ],
+  "Antiinflammatories": [
+    {
+      "drugName": "Ketorolac",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical non-steroidal anti-inflammatory (NSAID).",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "Prednisolone aceteate",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication is a topical steroid and is contraindicated with corneal ulcers. Stop and call if squinting is noted.",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "NeoPolyDex drops",
+      "formulation": "ophthalmic solution",
+      "route": "topical",
+      "clientInfo": "This medication contains a topical steroid and is contraindicated with corneal ulcers. Stop and call if squinting is noted.",
+      "dose": "1 drop"
+    },
+    {
+      "drugName": "NeoPolyDex ointment",
+      "formulation": "ophthalmic ointment",
+      "route": "topical",
+      "clientInfo": "This medicaiton contains a steroid which is contraindicated with corneal ulcers. Stop and call if squinting is noted.",
+      "dose": "a small amount (1/4\" strip)"
+    }
+  ]
+}
